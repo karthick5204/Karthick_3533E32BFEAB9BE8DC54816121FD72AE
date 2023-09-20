@@ -1,31 +1,19 @@
-class BankAccount:
-    def __init__(self, account_number, account_holder_name, initial_balance=0):
-        self.__account_number = account_number
-        self.__account_holder_name = account_holder_name
-        self.__account_balance = initial_balance
+class Player:
+    def play(self):
+        print("The player is playing cricket.")
 
-    def deposit(self, amount):
-        if amount > 0:
-            self.__account_balance += amount
-            print(f"Deposited ${amount}. New balance: ${self.__account_balance}")
-        else:
-            print("Invalid deposit amount. Please enter a positive value.")
+class Batsman(Player):
+    def play(self):
+        print("The batsman is batting.")
 
-    def withdraw(self, amount):
-        if amount > 0 and amount <= self.__account_balance:
-            self.__account_balance -= amount
-            print(f"Withdrew ${amount}. New balance: ${self.__account_balance}")
-        else:
-            print("Invalid withdrawal amount or insufficient balance.")
+class Bowler(Player):
+    def play(self):
+        print("The bowler is bowling.")
 
-    def display_balance(self):
-        print(f"Account balance for {self.__account_holder_name}: ${self.__account_balance}")
+# Creating objects of Batsman and Bowler classes
+batsman = Batsman()
+bowler = Bowler()
 
-# Creating an instance of the BankAccount class
-account = BankAccount("123456789", "KARTHICK", 1000)
-
-# Testing deposit and withdrawal functionality
-account.display_balance()
-account.deposit(500)
-account.withdraw(200)
-account.display_balance()
+# Calling the play() method for each object
+batsman.play()
+bowler.play()
